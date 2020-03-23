@@ -1,4 +1,4 @@
-# Hello
+# Phoenix-Elixir
 
 To start your Phoenix server:
 
