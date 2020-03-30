@@ -26,6 +26,14 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :hello, Hello.Repo,
+  username: "postgres",
+  password: "p0stcod3",
+  database: "hello_dev",
+  hostname: "localhost",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

@@ -13,6 +13,16 @@ defmodule HelloWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", HelloWeb do
+    pipe_through :api
+
+    get "/blogs", BlogsController, :index
+    # create blog post entry
+    post "/blogs", BlogsController, :create
+    # show a single blog post
+    get "/blogs/:id", BlogsController, :show
+  end
+
   scope "/", HelloWeb do
     pipe_through :browser
     # pipe_through [:authenticate_user, :ensure_admin]
@@ -33,10 +43,5 @@ defmodule HelloWeb.Router do
   # Other scopes may use custom stacks.
   # scope "/api", HelloWeb do
   #   pipe_through :api
-  # end
-  # scope "/admin" do
-  #   pipe_through :browser
-  #
-  #   resources "/reviews", HelloWeb.Admin.ReviewController
   # end
 end

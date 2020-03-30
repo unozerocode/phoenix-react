@@ -18,14 +18,16 @@ import {
   Route,
 } from "react-router-dom";
 
-import Jumbotron from './components/jumbotron';
+import Home from './components/home';
 import SideMenu from './components/side-menu';
+import Form from './components/containers/form';
 const App = () => {
   return (
     <Router>
         <Switch>
           <Route path="/map" component={SideMenu}/>
-           <Route path="/" component={Jumbotron}/>
+          <Route path="/create" component={Form} />
+           <Route path="/" component={Home}/>
         </Switch>
     </Router>
   );
