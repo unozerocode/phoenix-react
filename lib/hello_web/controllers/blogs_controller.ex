@@ -1,3 +1,5 @@
+import Ecto.Query
+
 defmodule HelloWeb.BlogsController do
   use HelloWeb, :controller
   alias HelloWeb.Blogs
@@ -21,5 +23,23 @@ defmodule HelloWeb.BlogsController do
   def show(conn, %{"id" => id}) do
     blog = Repo.get(Blogs, id)
     render(conn, "show.json", blog: blog)
+  end
+
+  def delete(conn, %{"id" => id}) do
+    blog = Repo.get(Blogs, id)
+    Repo.delete(blog)
+    blogs = Repo.all(Blogs)
+    render(conn, "index.json", blogs: blogs)
+  end
+
+  def update(conn, %{"id" => id, "blogs" => blogs_params}) do
+    blog = Repo.get(Blogs, id)
+    changeset = Blogs.changeset(blog, blogs_params)
+
+    case Repo.update(changeset) do
+      {:ok, _blog} ->
+        blog = Repo.get(Blog, id)
+        render(conn, "show.json", blog: blog)
+    end
   end
 end

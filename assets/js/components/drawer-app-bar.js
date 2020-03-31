@@ -84,7 +84,7 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer("left", true)}>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer("left", true)} style={{ textDecoration: "none", outline: "none"}}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
