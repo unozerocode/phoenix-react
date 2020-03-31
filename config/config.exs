@@ -28,7 +28,7 @@ config :phoenix, :json_library, Jason
 
 config :hello, Hello.Repo,
   username: "postgres",
-  password: "p0stcod3",
+  password: "postgres",
   database: "hello_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
