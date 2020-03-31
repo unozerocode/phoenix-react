@@ -21,6 +21,10 @@ defmodule HelloWeb.Router do
     post "/blogs", BlogsController, :create
     # show a single blog post
     get "/blogs/:id", BlogsController, :show
+
+    delete "/blogs/:id", BlogsController, :delete
+
+    put "/blogs/:id", BlogsController, :update
   end
 
   scope "/", HelloWeb do

@@ -7,17 +7,30 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+import Fab from '@material-ui/core/Fab';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import axios from "axios"
+
 
 
 class BlogCard extends React.Component {
+constructor(props){
+  super(props);
+  this.handleDelete = this.handleDelete.bind(this)
+}
+handleDelete(event){
+  event.preventDefault();
+  axios.delete('http://localhost:4000/api/blogs/'+id)
+  .then(response => {
+
+        alert("Blog id: "+ id + " Eliminado")
+          return response;
+      }).catch ((err) => {
+          console.log("Exception: " + err)
+      })
+  }
+
   render() {
     return (
 
@@ -39,10 +52,18 @@ class BlogCard extends React.Component {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
+        <CardActions className="d-flex justify-content-around">
           <a href={this.props.link}> <Button size="small" variant="contained" color="primary">
             Share
           </Button></a>
+        <div >
+          <Fab className="m-2" size="small" color="secondary" aria-label="add" style={{outline: "none"}} onClick={this.handleDelete}>
+              <DeleteIcon />
+            </Fab>
+            <Fab size="small" color="secondary" aria-label="add" style={{outline: "none"}}>
+                <EditIcon />
+              </Fab>
+        </div>
         </CardActions>
       </Card>
     )

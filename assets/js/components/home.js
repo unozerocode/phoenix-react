@@ -32,7 +32,7 @@ const Jumbotron = () => {
           to="/create"
           style={{ textDecoration: "none", outline: "none"}}
         >
-        <Fab color="secondary" aria-label="add" style={{outline: "none"}}>
+        <Fab color="secondary" aria-label="add" style={{outline: "none", position: "fixed", right: "15px", bottom: "15px"}}>
           <AddIcon />
         </Fab>
         </Link>

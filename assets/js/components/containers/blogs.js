@@ -10,6 +10,7 @@ class Blogs extends React.Component {
       axios.get('http://localhost:4000/api/blogs')
         .then(response => {
           this.setState({ blogs: response.data.blogs });
+          console.log(response);
         })
         .catch(error => {
           console.log(error);

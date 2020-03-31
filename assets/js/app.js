@@ -21,11 +21,12 @@ import {
 import Home from './components/home';
 import SideMenu from './components/side-menu';
 import Form from './components/containers/form';
+import UpdateForm from './components/containers/update-form';
 const App = () => {
   return (
     <Router>
         <Switch>
-          <Route path="/map" component={SideMenu}/>
+          <Route path="/update" component={UpdateForm}/>
           <Route path="/create" component={Form} />
            <Route path="/" component={Home}/>
         </Switch>
