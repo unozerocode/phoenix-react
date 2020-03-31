@@ -6,9 +6,7 @@ defmodule HelloWeb.BlogsController do
   alias Hello.Repo
 
   def index(conn, _params) do
-    # query = from(Blogs, 10)
-    blogs = Repo.get_by(Blogs, title: "sada")
-    # blogs = Repo.all(Blogs)
+    blogs = Repo.all(Blogs)
     render(conn, "index.json", blogs: blogs)
   end
 
