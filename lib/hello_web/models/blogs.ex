@@ -1,7 +1,8 @@
 defmodule HelloWeb.Blogs do
   use HelloWeb, :model
-
+  @primary_key false
   schema "blogs" do
+    field :id, :id, primary_key: true
     field :title, :string
     field :subtitle, :string
     field :image, :string
