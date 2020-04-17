@@ -10,7 +10,7 @@ defmodule HelloWeb.BlogsController do
     render(conn, "index.json", blogs: blogs)
   end
 
-  def create(conn, %{"data" => blogs_params}) do
+  def create(conn, %{"blogs" => blogs_params}) do
     changeset = Blogs.changeset(%Blogs{}, blogs_params)
 
     case Repo.insert(changeset) do
