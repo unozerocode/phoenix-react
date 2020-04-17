@@ -20,6 +20,7 @@ class Blogs extends React.Component {
     const posts = this.state.blogs.map((blog, index) =>
       <BlogCard
         key = { index }
+        id={ blog.id}
         title = { blog.title }
         subtitle = { blog.subtitle }
         image = { blog.image }

@@ -9,6 +9,7 @@ defmodule HelloWeb.BlogsView do
 
   def blogs_json(blog) do
     %{
+      id: blog.id,
       title: blog.title,
       subtitle: blog.subtitle,
       image: blog.image,
